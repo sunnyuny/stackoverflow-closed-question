@@ -45,7 +45,7 @@ def iter_open_questions(file_name):
     return (question[1] for df in df_iter for question in df[df["OpenStatus"] == "open"].iterrows())
 
 def get_dataframe(file_name="train-sample.csv"):
-    return pd.io.parsers.read_csv(os.path.join(data_path, file_name), converters = df_converters)
+    return pd.io.parsers.read_csv(os.path.join(data_path, file_name), converters = df_converters, encoding='utf-8')
 
 def get_priors(file_name):
     closed_reasons = [r[14] for r in get_reader(file_name)]
